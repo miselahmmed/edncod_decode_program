@@ -1,0 +1,32 @@
+print("In this program you can encode or decode anything")
+alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
+text = input("Type your message:").lower()
+shift =int(input("Type the shift number:"))
+
+def encrypt(text,shift):
+    a = ("")
+    for x in text:
+        indx=alphabet.index(x)
+        move= shift+indx
+        while move >26:
+            move -= 26
+        datA=(alphabet[move])
+        a += datA
+    print(f"The Encode of {text} is: {a}")
+def decrypt(text,shift):
+    a = ("")
+    for x in text:
+        indx=alphabet.index(x)
+        move=indx -shift
+        while move >26:
+            move -= 26
+        datA=(alphabet[move])
+        a += datA
+    print(f"The Decode of {text} is: {a}")
+
+if direction == "encode":
+    encrypt(text, shift)
+elif direction == "decode":
+    decrypt(text,shift)
+
